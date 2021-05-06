@@ -13,6 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+import { ServerSideRender } from '@wordpress/editor';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -29,13 +30,10 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit ( { attributes, className, isSelected, setAttributes } ) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Post Edit block – hello from the editor!',
-				'sb-post-edit-block'
-			) }
-		</p>
+	<ServerSideRender
+		block="oik-sb/sb-post-edit-block" attributes={attributes}
+	/>
 	);
 }
