@@ -29,25 +29,40 @@ function oik_sb_sb_post_edit_block_loaded() {
 	add_action( 'init', 'oik_sb_sb_post_edit_block_block_init' );
 }
 /**
- * Implements post-edit block.
+ * Implements the Post Edit block.
  *
  * If the user is authorised return a post edit link for the current post.
  *
- * @param $attrs
- * @param $content
- * @param $tag
- *
+ * @param array $attributes Block attributes
  * @return string
  */
 function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
-	$link='';
-	$url =get_edit_post_link();
-	if ( $url ) {
-		$class='bw_edit';
-		$text =__( '(Edit)', 'sb-post-edit-block' );
-		$link ='<a class="' . esc_attr( $class ) . '" href="' . esc_url( $url ) . '">' . $text . '</a>';
+	//bw_trace2();
+	$html='';
+	$url = get_edit_post_link();
+	if ( !$url ) {
+		return $html;
 	}
-	return $link;
+	//	$class='bw_edit';
+	$text = empty( $attributes['label']) ? __( '(Edit)', 'sb-post-edit-block' ) : $attributes['label'];
+	//	$link ='<a class="' . esc_attr( $class ) . '" href="' . esc_url( $url ) . '">' . $text . '</a>';
+	//}
+
+	$align_class_name   = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
+
+	$extra_attributes = [ 'class' => $align_class_name ];
+	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
+	$extra_attributes['href'] = esc_url( $url );
+	$link_wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
+
+	$html = sprintf(
+		'<div %1$s><a %2$s>%3$s</a></div>',
+		$wrapper_attributes,
+		$link_wrapper_attributes,
+		$text
+
+	);
+	return $html;
 }
 
 oik_sb_sb_post_edit_block_loaded();
