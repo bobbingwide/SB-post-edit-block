@@ -4,16 +4,20 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-
+import classnames from 'classnames';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { AlignmentControl,
+	BlockControls,
+	InspectorControls,
+	useBlockProps } from '@wordpress/block-editor';
 
 import { ServerSideRender } from '@wordpress/editor';
+import { PanelBody, PanelRow,TextControl } from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -31,9 +35,48 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit ( { attributes, className, isSelected, setAttributes } ) {
+	const onChangeLabel = ( event ) => {
+		setAttributes( { label: event } );
+	};
+	const { textAlign, label } = attributes;
+
+	const blockProps = useBlockProps( {
+		className: classnames( {
+			[ `has-text-align-${ textAlign }` ]: textAlign,
+		} ),
+	} );
+
+
 	return (
-	<ServerSideRender
-		block="oik-sb/sb-post-edit-block" attributes={attributes}
-	/>
+		<>
+			<BlockControls group="block">
+				<AlignmentControl
+					value={ textAlign }
+					onChange={ ( nextAlign ) => {
+						setAttributes( { textAlign: nextAlign } );
+					} }
+				/>
+			</BlockControls>
+			<InspectorControls>
+				<PanelBody>
+				<PanelRow>
+				<TextControl
+				label="Label"
+				value={ label }
+				onChange={ onChangeLabel }
+			/>
+				</PanelRow>
+				</PanelBody>
+
+			</InspectorControls>
+
+
+
+	<div { ...blockProps }>{ label }
+
+	</div>
+			</>
+
+
 	);
 }

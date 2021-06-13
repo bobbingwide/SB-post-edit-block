@@ -20,6 +20,12 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 
+import metadata from '../../block.json';
+console.log( "Metadata");
+console.log( metadata );
+console.log( "Metadata after");
+
+
 /**
  * Every block starts by registering a new block type definition.
  *
@@ -30,9 +36,12 @@ registerBlockType( 'oik-sb/sb-post-edit-block', {
 	 * @see ./edit.js
 	 */
 	edit: Edit,
+	attributes: metadata.attributes,
+	supports: metadata.supports
 
 	/**
 	 * @see ./save.js
-	 */
+
 	save,
+	 */
 } );
