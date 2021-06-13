@@ -5,9 +5,26 @@
 	"category": "widgets",
 	"icon": "edit-page",
 	"description": "Post edit block to allow direct editing of the post",
-	"supports": {
-		"html": false
+  	"attributes": {
+	  "textAlign": {
+		"type": "string"
+	  },
+	  "label": {
+		"type": "string",
+		"default": "(Edit)"
+	  }
 	},
+  "supports": {
+	"html": false,
+	"color": {
+	  "gradients": true,
+	  "link": true
+	},
+	"typography": {
+	  "fontSize": true,
+	  "lineHeight": true
+	}
+  },
 	"textdomain": "sb-post-edit-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
