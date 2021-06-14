@@ -61,7 +61,7 @@ export default function Edit ( { attributes, className, isSelected, setAttribute
 				<PanelBody>
 				<PanelRow>
 				<TextControl
-				label="Label"
+				label={ __("Link text", 'sb-post-edit-block' ) }
 				value={ label }
 				onChange={ onChangeLabel }
 			/>
@@ -72,7 +72,7 @@ export default function Edit ( { attributes, className, isSelected, setAttribute
 
 
 
-	<div { ...blockProps }>{ label }
+			<div { ...blockProps }><a href="#">{ label }</a>
 
 	</div>
 			</>
