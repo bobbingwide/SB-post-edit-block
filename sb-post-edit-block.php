@@ -22,7 +22,8 @@
  */
 function oik_sb_sb_post_edit_block_block_init() {
 	$args = [ 'render_callback' => 'oik_sb_sb_post_edit_block_dynamic_block'];
-	register_block_type_from_metadata( __DIR__, $args );
+	$registered = register_block_type_from_metadata( __DIR__, $args );
+	//echo __DIR__. "?$registered?";
 }
 
 function oik_sb_sb_post_edit_block_loaded() {
@@ -41,6 +42,8 @@ function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
 	$html='';
 	$url = get_edit_post_link();
 	if ( !$url ) {
+		// Workaround for Gutenberg issue #33401
+		$html = '<span></span>';
 		return $html;
 	}
 	//	$class='bw_edit';
