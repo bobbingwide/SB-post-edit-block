@@ -3,7 +3,7 @@
 * Contributors:      bobbingwide
 * Tags:              block, post-edit, Gutenberg, FSE
 * Tested up to:      5.7.2
-* Stable tag:        0.1.0
+* Stable tag:        0.1.1
 * License:           GPLv3
 * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ The link is only displayed to logged in users.
 1. Post edit block and default settings
 
 ## Upgrade Notice 
+# 0.1.1 
+Update for a workaround to Gutenberg issue 33401.
+
 # 0.1.0 
 Update for an improved version that's selectable.
 
@@ -31,6 +34,11 @@ Update for an improved version that's selectable.
 First version to replace any `[post-edit]` shortcodes in FSE themes
 
 ## Changelog 
+# 0.1.1 
+* Changed: Implement workaround to Gutenberg issue 33401 #2
+* Tested: With Gutenberg 11.0.0
+* Tested: With WordPress 5.8-RC2
+
 # 0.1.0 
 * Added: Add attributes and supports to block.json #1
 * Added: Support Link text field and alignment in the editor #2
