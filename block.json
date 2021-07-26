@@ -1,7 +1,7 @@
 {
 	"apiVersion": 2,
 	"name": "oik-sb/sb-post-edit-block",
-	"title": "Post Edit block",
+	"title": "Post Edit",
 	"category": "widgets",
 	"icon": "edit-page",
 	"description": "Post edit block to allow direct editing of the post",
