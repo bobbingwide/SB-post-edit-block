@@ -16,7 +16,6 @@ import { AlignmentControl,
 	InspectorControls,
 	useBlockProps } from '@wordpress/block-editor';
 
-import { ServerSideRender } from '@wordpress/editor';
 import { PanelBody, PanelRow,TextControl } from '@wordpress/components';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
