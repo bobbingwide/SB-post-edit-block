@@ -57,7 +57,7 @@ function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
 	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
 	$extra_attributes['href'] = esc_url( $url );
 	$link_wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
-
+	$link_wrapper_attributes = 'href=' . esc_url( $url );
 	$html = sprintf(
 		'<div %1$s><a %2$s>%3$s</a></div>',
 		$wrapper_attributes,
