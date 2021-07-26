@@ -29,6 +29,7 @@ function oik_sb_sb_post_edit_block_block_init() {
 function oik_sb_sb_post_edit_block_loaded() {
 	add_action( 'init', 'oik_sb_sb_post_edit_block_block_init' );
 }
+
 /**
  * Implements the Post Edit block.
  *
@@ -38,7 +39,6 @@ function oik_sb_sb_post_edit_block_loaded() {
  * @return string
  */
 function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
-	//bw_trace2();
 	$html='';
 	$url = get_edit_post_link();
 	if ( !$url ) {
@@ -46,17 +46,13 @@ function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
 		$html = '<span></span>';
 		return $html;
 	}
-	//	$class='bw_edit';
 	$text = empty( $attributes['label']) ? __( '(Edit)', 'sb-post-edit-block' ) : $attributes['label'];
-	//	$link ='<a class="' . esc_attr( $class ) . '" href="' . esc_url( $url ) . '">' . $text . '</a>';
-	//}
+
 
 	$align_class_name   = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
 
 	$extra_attributes = [ 'class' => $align_class_name ];
 	$wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
-	$extra_attributes['href'] = esc_url( $url );
-	$link_wrapper_attributes = get_block_wrapper_attributes( $extra_attributes );
 	$link_wrapper_attributes = 'href=' . esc_url( $url );
 	$html = sprintf(
 		'<div %1$s><a %2$s>%3$s</a></div>',
