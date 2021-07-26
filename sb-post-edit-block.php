@@ -4,7 +4,7 @@
  * Description:       Post edit block to allow direct editing of the post
  * Requires at least: 5.7
  * Requires PHP:      7.3
- * Version:           0.1.1
+ * Version:           0.2.0
  * Author:            bobbingwide
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,7 +23,6 @@
 function oik_sb_sb_post_edit_block_block_init() {
 	$args = [ 'render_callback' => 'oik_sb_sb_post_edit_block_dynamic_block'];
 	$registered = register_block_type_from_metadata( __DIR__, $args );
-	//echo __DIR__. "?$registered?";
 }
 
 function oik_sb_sb_post_edit_block_loaded() {
