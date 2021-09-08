@@ -1,9 +1,13 @@
 {
 	"name": "sb-post-edit-block",
-	"version": "0.0.0",
+	"version": "0.3.0",
 	"description": "Post edit block to allow direct editing of the post",
 	"author": "bobbingwide",
-	"license": "GPLv3",
+  	"license": "GPL-2.0-or-later",
+  	"repository": {
+		"type": "git",
+		"url": "git://github.com/bobbingwide/sb-post-edit-block.git"
+  	},
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
