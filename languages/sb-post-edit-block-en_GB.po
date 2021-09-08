@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Post Edit block 0.2.0\n"
+"Project-Id-Version: Post Edit block 0.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sb-post-edit-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: en_GB\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-14T21:04:07+00:00\n"
+"POT-Creation-Date: 2021-09-08T10:45:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: sb-post-edit-block\n"
@@ -24,11 +24,11 @@ msgstr "Post edit block to allow direct editing of the post"
 msgid "bobbingwide"
 msgstr "bobbingwide"
 
-#: sb-post-edit-block.php:58
+#: sb-post-edit-block.php:66
 msgid "(Edit)"
 msgstr "(Edit)"
 
-#: build/index.js:382
+#: build/index.js:1
 msgid "Link text"
 msgstr "Link text"
 
