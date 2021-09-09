@@ -10,11 +10,10 @@
 		"type": "string"
 	  },
 	  "label": {
-		"type": "string",
-		"default": "(Edit)"
+		"type": "string"
 	  }
 	},
-  "supports": {
+   "supports": {
 	"html": false,
 	"color": {
 	  "gradients": true,

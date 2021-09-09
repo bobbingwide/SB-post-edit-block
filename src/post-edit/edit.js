@@ -39,12 +39,19 @@ export default function Edit ( { attributes, className, isSelected, setAttribute
 	};
 	const { textAlign, label } = attributes;
 
+	let displayLabel = label;
+
+	/** Force a default value if the label is empty or all blank */
+	if ( label === undefined || label.trim() === '') {
+		setAttributes( { label: undefined } );
+		displayLabel = __( '(Edit)', 'sb-post-edit-block');
+	}
+
 	const blockProps = useBlockProps( {
 		className: classnames( {
 			[ `has-text-align-${ textAlign }` ]: textAlign,
 		} ),
 	} );
-
 
 	return (
 		<>
@@ -58,24 +65,18 @@ export default function Edit ( { attributes, className, isSelected, setAttribute
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody>
-				<PanelRow>
-				<TextControl
-				label={ __("Link text", 'sb-post-edit-block' ) }
-				value={ label }
-				onChange={ onChangeLabel }
-			/>
-				</PanelRow>
+					<PanelRow>
+						<TextControl
+							label={ __("Link text", 'sb-post-edit-block' ) }
+							value={ displayLabel }
+							onChange={ onChangeLabel }
+						/>
+					</PanelRow>
 				</PanelBody>
-
 			</InspectorControls>
-
-
-
-			<div { ...blockProps }><a href="#">{ label }</a>
-
-	</div>
-			</>
-
-
+			<div { ...blockProps }>
+				<a href="#">{ displayLabel }</a>
+			</div>
+		</>
 	);
 }

@@ -1,6 +1,6 @@
 {
 	"name": "sb-post-edit-block",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "Post edit block to allow direct editing of the post",
 	"author": "bobbingwide",
   	"license": "GPL-2.0-or-later",

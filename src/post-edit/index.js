@@ -5,6 +5,8 @@
  */
 import { registerBlockType } from '@wordpress/blocks';
 
+import { __ } from '@wordpress/i18n';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * All files containing `style` keyword are bundled together. The code used
@@ -18,9 +20,7 @@ import './style.scss';
  * Internal dependencies
  */
 import Edit from './edit';
-import save from './save';
 
-import metadata from '../../block.json';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -28,16 +28,13 @@ import metadata from '../../block.json';
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 registerBlockType( 'oik-sb/sb-post-edit-block', {
+	example: {
+		attributes: {
+			label: __( "(Edit)", 'sb-post-edit-block')
+		}
+	},
 	/**
 	 * @see ./edit.js
 	 */
-	edit: Edit,
-	attributes: metadata.attributes,
-	supports: metadata.supports
-
-	/**
-	 * @see ./save.js
-
-	save,
-	 */
+	edit: Edit
 } );

@@ -4,7 +4,7 @@
  * Description:       Post edit block to allow direct editing of the post
  * Requires at least: 5.7
  * Requires PHP:      7.3
- * Version:           0.3.0
+ * Version:           0.3.1
  * Author:            bobbingwide
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,10 +30,7 @@ function oik_sb_sb_post_edit_block_block_init() {
 	 * from the locale specific .json file in the languages folder
 	 */
 	$ok = wp_set_script_translations( 'oik-sb-sb-post-edit-block-editor-script', 'sb-post-edit-block' , __DIR__ .'/languages' );
-	//echo "?$ok?";
-
 	//add_filter( 'load_script_textdomain_relative_path', 'oik_load_script_textdomain_relative_path', 10, 2);
-
 }
 
 function oik_sb_sb_post_edit_block_loaded() {
@@ -42,7 +39,7 @@ function oik_sb_sb_post_edit_block_loaded() {
 
 function oik_sb_sb_post_edit_block_load_plugin_textdomain( $domain="sb-post-edit-block" ) {
 	$languages_dir =  "$domain/languages";
-	bw_trace2( $languages_dir, "languages dir" );
+	//bw_trace2( $languages_dir, "languages dir" );
 	$loaded = load_plugin_textdomain( $domain, false, $languages_dir );
 	return $loaded;
 }
@@ -63,8 +60,12 @@ function oik_sb_sb_post_edit_block_dynamic_block( $attributes ) {
 		$html = '<span></span>';
 		return $html;
 	}
-	$text = empty( $attributes['label']) ? __( '(Edit)', 'sb-post-edit-block' ) : $attributes['label'];
 
+	/** Use the default value for the link text if the label attribute is not set or just blank.
+	 */
+	$text = empty( $attributes['label'])  ? '' : $attributes['label'];
+	$text = trim( $text );
+	$text = empty( $text ) ?  __( '(Edit)', 'sb-post-edit-block' ) : $text;
 
 	$align_class_name   = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
 
