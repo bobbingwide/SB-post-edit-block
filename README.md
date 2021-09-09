@@ -1,9 +1,9 @@
 # Post Edit block 
-![banner](https://raw.githubusercontent.com/bobbingwide/sb-post-edit-block/main/assets/sb-post-edit-block-banner-772x250.jpg)
+![banner](assets/sb-post-edit-block-banner-772x250.jpg)
 * Contributors:      bobbingwide
 * Tags:              block, post-edit, Gutenberg, FSE
-* Tested up to:      5.7.2
-* Stable tag:        0.3.0
+* Tested up to:      5.8
+* Stable tag:        0.3.1
 * License:           GPLv3
 * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ The link is only displayed to logged in users.
 1. Post edit block and default settings
 
 ## Upgrade Notice 
+# 0.3.1 
+Tested with Gutenberg 11.4.1
+
 # 0.3.0 
 Upgrade for an internationalized version.
 
@@ -40,6 +43,13 @@ Update for an improved version that's selectable.
 First version to replace any `[post-edit]` shortcodes in FSE themes
 
 ## Changelog 
+# 0.3.1 
+* Changed: Ensures default link text of (Edit) is localized #5
+* Changed: Add repository, correct license, update version #5
+* Tested: With WordPress 5.8 and WordPress Multi Site
+* Tested: With Gutenberg 11.4.1
+* Tested: With PHP 8.0
+
 # 0.3.0 
 * Changed: Internationalized #5
 * Tested: With WordPress 5.8 and WordPress Multi Site
