@@ -4,7 +4,7 @@
  * Description:       Post edit block to allow direct editing of the post
  * Requires at least: 5.7
  * Requires PHP:      7.3
- * Version:           0.3.1
+ * Version:           0.3.2
  * Author:            bobbingwide
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
